@@ -26,7 +26,7 @@ dose_day = int(input("Enter doses per day: "))
 print(dose_day)
 target = int(input("Enter target percent vaccinated: "))
 print(target)
-e = int(((pop_0*(target/100))-(doses_0/2))/(dose_day/2))
+e = int(((pop_0 * (target / 100)) - (doses_0 / 2)) / (dose_day / 2))
 today: datetime = datetime.today()
 e_days: timedelta = timedelta(e)
 future: datetime = today + e_days
