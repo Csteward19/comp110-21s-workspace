@@ -31,4 +31,4 @@ today: datetime = datetime.today()
 e_days: timedelta = timedelta(e)
 future: datetime = today + e_days
 f = future.strftime("%B %d, %Y")
-print('We will reach',target,'% vaccination','in',e,'days, which falls on',f)
+print('We will reach'  ,  target  ,  '% vaccination'  ,'in'  ,  e  ,  'days, which falls on'  ,  f)
