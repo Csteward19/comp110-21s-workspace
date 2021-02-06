@@ -19,11 +19,13 @@ print(a)
 b: int = randint(0, 100)
 if b > 75: 
     print("Many new changes are coming your way")
-elif b > 50: 
-    print("You will receive horrible news")
-elif b > 25: 
-    print("Love may be around the corner, or five blocks down")
-else: 
-    print("A bright spot is at the end of your tunnel")
+else:
+    if b > 50: 
+        print("You will receive horrible news")
+    else:
+        if b > 25: 
+            print("Love may be around the corner, or five blocks down")
+        else: 
+            print("A bright spot is at the end of your tunnel")
 c: str = "Now go spread positive vibes"
 print(c)
