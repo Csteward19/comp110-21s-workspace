@@ -16,6 +16,8 @@ from random import randint
 # Begin your solution here...
 a: str = "Your fortune cookie says"
 print(a)
+import builtins
+from random import randint
 b: int = randint(0, 100)
 if b > 75: 
     print("Many new changes are coming your way")
