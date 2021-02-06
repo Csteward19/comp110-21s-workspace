@@ -14,7 +14,7 @@ from random import randint
 
 
 # Begin your solution here...
-a: str = "Your fortune cookie says"
+a: str = "Your fortune cookie says..."
 print(a)
 b: int = randint(0, 100)
 if b > 75: 
@@ -28,5 +28,5 @@ else:
         else: 
             print("A bright spot is at the end of your tunnel")
 b = bool(b)
-c: str = "Now go spread positive vibes"
+c: str = "Now, go spread positive vibes"
 print(c)
