@@ -27,5 +27,6 @@ else:
             print("Love may be around the corner, or five blocks down")
         else: 
             print("A bright spot is at the end of your tunnel")
+b = bool(b)
 c: str = "Now go spread positive vibes"
 print(c)
