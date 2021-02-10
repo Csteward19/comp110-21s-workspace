@@ -1,6 +1,6 @@
 """Tar Heels exercise redux as a structured program."""
 
-__author__ = "YOUR 9-DIGIT PID"
+__author__ = "730404260"
 
 
 def main() -> None:
@@ -21,7 +21,7 @@ def tar_heels(ramses: int) -> str:
             if ramses % 7 == 0:
                 return "HEELS"
             else: 
-                return "Carolina"
+                return "CAROLINA"
 
 
 if __name__ == "__main__":
