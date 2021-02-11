@@ -11,7 +11,7 @@ def main() -> None:
 
 
 def tar_heels(ramses: int) -> str:
-    """The Arithmetic"""
+    """The Arithmetic."""
     if ramses % 2 == 0 and ramses % 7 == 0:
         return "TAR HEELS"
     else: 

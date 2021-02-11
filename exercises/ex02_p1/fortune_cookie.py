@@ -14,7 +14,7 @@ def main() -> None:
 
 
 def fortune_cookie() -> str:
-    """The fortune_cookie function"""
+    """The fortune_cookie function."""
     fortune: int = randint(1, 100)
     if fortune > 75: 
         return "Many new changes are coming your way."
