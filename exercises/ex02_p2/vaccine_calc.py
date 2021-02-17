@@ -2,7 +2,7 @@
 
 from datetime import datetime, timedelta
 
-__author__ = "YOUR 9-DIGIT PID"
+__author__ = "730404260"
 
 
 def main() -> None:
@@ -11,15 +11,25 @@ def main() -> None:
     doses: int = int(input("Doses administered: "))
     doses_per_day: int = int(input("Doses per day: "))
     target: int = int(input("Target percent vaccinated: "))
-    # TODO 2: Call days_to_target and store result in a variable.
-    # TODO 4: Call future_date and store result in a variable.
-    # TODO 5: Print the expected output using the variables above.
+    result = days_to_target(population, doses, doses_per_day, target)
+    date: str = future_date(result)
+    target1 = str(target)
+    print('We will reach', target1 + '% vaccination', 'in', result, 'days, which falls on', date)
 
 
-# TODO 1: Define days_to_target function
+def days_to_target(population: int, doses: int, doses_per_day: int, target: int) -> int:
+    """The Original"""
+    days_left = float(((population * (target / 100)) - (doses / 2)) - (doses_per_day / 2))
+    rounded_days_left: int = round(days_left)
+    return rounded_days_left
+    
+def future_date(time_left: int) -> str:
+    today: datetime = datetime.today()
+    x_days: timedelta = timedelta(time_left)
+    future: datetime = today + x_days
+    f = future.strftime("%B %d, %Y")
+    return f
 
-
-# TODO 3: Define future_date function
 
 
 if __name__ == "__main__":
