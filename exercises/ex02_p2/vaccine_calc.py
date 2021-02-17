@@ -14,12 +14,12 @@ def main() -> None:
     result = days_to_target(population, doses, doses_per_day, target)
     date: str = future_date(result)
     target1 = str(target)
-    print('We will reach', target1 + '% vaccination', 'in', result, 'days, which falls on', date)
+    print('We will reach', target1 + '% vaccination', 'in', result, 'days, which falls on', date, '.')
 
 
 def days_to_target(population: int, doses: int, doses_per_day: int, target: int) -> int:
     """The Original"""
-    days_left = float(((population * (target / 100)) - (doses / 2)) - (doses_per_day / 2))
+    days_left = float(((population * (target / 100)) - (doses / 2)) / (doses_per_day / 2))
     rounded_days_left: int = round(days_left)
     return rounded_days_left
     
