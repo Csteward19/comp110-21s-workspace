@@ -6,6 +6,7 @@ def main() -> None:
     global points
     points: int = color() * weather() * weapon()
     print(greet())
+
     
 
 def greet() -> None:
@@ -14,7 +15,7 @@ def greet() -> None:
     return None
     
 
-def color(favorite: int)-> int:
+def color()-> int:
     """Asseses favorite color banner."""
     fave_color: str = str(input("What is best: red, green, orange, blue, gold, silver, iron, or leave?"))
     if fave_color == "red":
@@ -40,10 +41,10 @@ def color(favorite: int)-> int:
                             else:
                                 if fave_color == "leave":
                                     return 0
-    return favorite
+    return randint(1,100)
 
 
-def weather(climate: int)-> int:
+def weather()-> int:
     """Assesses weather preference."""
     best_weather: str = str(input("What is the best climate?: cold, hot, warm, mild, or leave"))
     if best_weather == "cold":
@@ -60,10 +61,10 @@ def weather(climate: int)-> int:
                 else:
                     if best_weather == "leave":
                         return 0
-    return climate
+    return 
 
 
-def weapon(choice: int) -> int:
+def weapon() -> int:
     """Assesses participant's preffered weapon in combat."""
     best_weapon: str = str(input("What is your choice of weapon?: ship, sword, dagger, spear, dragon, or leave"))
     if best_weapon == "ship":
@@ -83,7 +84,36 @@ def weapon(choice: int) -> int:
                     else: 
                         if best_weapon == "leave":
                             return 0
-    return choice
+    return 
+
+
+def total_points() -> str:
+    total: int = color() * weather() * weapon()
+    if total % 5 == 0:
+        return "You are from House Targaeryan"
+    else:
+        if total % 6 == 0:
+            return "You are from House Tyrell"
+        else:
+            if total % 7 == 0:
+                return "You are from House Martell"
+            else:
+                if total % 8 == 0:
+                    return "You are from House Tully"
+                else:
+                    if total % 9 == 0:
+                        return "You are from House Lannister"
+                    else:
+                        if total % 11 == 0:
+                            return "You are from House Stark"
+                        else:
+                            if total % 13 == 0:
+                                return "You are from House Greyjoy"
+                            else:
+                                if total == 0:
+                                    return "You are a Whitewalker"
+    return 
+
 
 
 
