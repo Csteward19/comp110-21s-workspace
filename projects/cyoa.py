@@ -1,27 +1,25 @@
 """A Buzzfeed Quiz To Determine What Game of Thrones House You Are."""
+__author__ = "730404260"
+
+
 from random import randint
+whitewalker = "\U0001F976"
+wolf = "\U0001F43A"
+lion = "\U0001F981"
+fish = ("\U0001F41F")
+kraken = "\U0001F419"
+rose = "\U0001F33A" 
+sun = "\U00002600"
+dragon = "\U0001F409"
+points: int
+player: str
+
 
 def main() -> None:
-    """The initial inputs for quiz"""
-    global whitewalker
-    whitewalker = "\U0001F976"
-    global wolf
-    wolf = "\U0001F43A"
-    global lion
-    lion = "\U0001F981"
-    global fish
-    fish = "\U0001F41F"
-    global kraken
-    kraken = "\U0001F419"
-    global rose
-    rose = "\U0001F33A"
-    global sun 
-    sun = "\U00002600"
-    global dragon
-    dragon = "\U0001F409"
-    greet()
+    """The initial inputs for quiz."""
     global points
     points = 0
+    greet()
     color()
     print(points)
     if points != 0:
@@ -33,18 +31,18 @@ def main() -> None:
     print(total_points())
 
     
-
 def greet() -> None:
     """Greetings young one."""
     global player
-    player = str(input("Hello! So you'd like to know what Game of Thrones house you'd be, what is your name? "))
+    print("Hello! So you'd like to know what Game of Thrones house you'd be.")
+    player = str(input("What is your name? "))
     return None
-    
 
-def color()-> None:
+
+def color() -> None:
     """Asseses favorite color banner."""
+    fave_color: str = str(input(player + ", choose a color: red, green, orange, blue, gold, silver, iron, or leave? "))
     global points
-    fave_color: str = str(input(player + ", what color is best: red, green, orange, blue, gold, silver, iron, or leave? "))
     if fave_color == "red":
         points = 5
     else:
@@ -70,8 +68,7 @@ def color()-> None:
                                     points = 0
 
 
-
-def weather(current_points: int)-> int:
+def weather(current_points: int) -> int:
     """Assesses weather preference."""
     best_weather: str = str(input(player + " ,what is the best climate?: cold, hot, warm, mild, or leave? "))
     if best_weather == "cold":
@@ -88,12 +85,12 @@ def weather(current_points: int)-> int:
                 else:
                     if best_weather == "leave":
                         return current_points * 0
-    return 1000
+    return randint(999, 1000)
 
 
 def weapon(current_points: int) -> int:
     """Assesses participant's preffered weapon in combat."""
-    best_weapon: str = str(input(player + ", what is your choice of weapon?: ship, sword, dagger, spear, dragon, or leave? "))
+    best_weapon: str = str(input(player + ", choose a weapon: ship, sword, dagger, spear, dragon, or leave? "))
     if best_weapon == "ship":
         return current_points * 26
     else: 
@@ -115,6 +112,7 @@ def weapon(current_points: int) -> int:
 
 
 def total_points() -> str:
+    """Finds total points earned and result of House."""
     total = points
     if total == 0:
         return f"You are a Whitewalker. {whitewalker}"
@@ -140,27 +138,7 @@ def total_points() -> str:
                                 if total % 13 == 0:
                                     return f"You are from House Greyjoy. {kraken}"
                                 
-                                
     return "hi"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":
