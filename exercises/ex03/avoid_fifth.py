@@ -11,8 +11,8 @@ def main() -> None:
 
 
 def avoid_fifth(e_sucks: str) -> str:
-    randstr: str = ""
     """The function that offs the letter that shall not be named."""
+    randstr: str = ""
     for character in e_sucks:
         if character.lower() != "e":
             randstr += character

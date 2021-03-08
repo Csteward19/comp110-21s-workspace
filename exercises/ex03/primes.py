@@ -13,14 +13,16 @@ def main() -> None:
 def is_prime(num: int) -> bool:
     """Determines if a number is prime."""
     if num > 1:
-        for specific in range(2,100):
+        for specific in range(2, 100):
             if num % specific == 0 and num != specific:
                 return False
             else:
-                return True
+                if num % specific != 0 or num == specific:
+                    return True
     else:
         return False
-    
+    return True 
+
 
 def list_primes(param1: int, param2: int) -> list[int]:
     """Will return all primes between two numbers."""
