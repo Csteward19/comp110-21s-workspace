@@ -1,10 +1,10 @@
 """Utility functions for wrangling data."""
 
-__author__ = "YOUR PID HERE"
+__author__ = 730404260
 
 
 from csv import DictReader
-from typing import Dict
+
 
 def read_csv_rows(csv_file: str) -> list[dict[str, str]]:
     """Read a CSV file's contents into a list of rows."""
@@ -21,8 +21,9 @@ def column_values(data_rows: list[dict[str, str]], column_name: str) -> list[str
     """Shows values for column of data."""
     column_data: list[str] = []
     for dictionary in data_rows:
-            column_data.append(dictionary[column_name])
+        column_data.append(dictionary[column_name])
     return column_data
+
 
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     """Transform from row based to column based data."""
@@ -32,7 +33,6 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
         transform_data[column] = column_values(row_table, column) 
     return transform_data
 
-from tabulate import tabulate
 
 def head(col_table: dict[str, list[str]], n_rows: int) -> dict[str, list[str]]:
     """Produces table for certain number of rows.""" 
@@ -47,12 +47,14 @@ def head(col_table: dict[str, list[str]], n_rows: int) -> dict[str, list[str]]:
         i += 1
     return table_returned
 
+
 def select(select_column: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
     """Selects specific subset of columns."""
     returned_dict: dict[str, list[str]] = {}
     for col_name in names:
         returned_dict[col_name] = select_column[col_name]
     return returned_dict
+
 
 def count(frequency: list[str]) -> dict[str, int]:
     """Counts for each subject."""
@@ -63,4 +65,3 @@ def count(frequency: list[str]) -> dict[str, int]:
         else:
             val_list[item] = 1
     return val_list
-
