@@ -1,6 +1,6 @@
 """Utility functions for wrangling data."""
 
-__author__ = 730404260
+__author__ = "730404260"
 
 
 from csv import DictReader
@@ -41,7 +41,7 @@ def head(col_table: dict[str, list[str]], n_rows: int) -> dict[str, list[str]]:
     for name in col_table:
         column_names.append(name)
     i = 0
-    for _ in range(0, n_rows - 1):
+    for subject in range(0, n_rows - 1):
         if i < len(column_names):
             table_returned[column_names[i]] = col_table[column_names[i]]
         i += 1
