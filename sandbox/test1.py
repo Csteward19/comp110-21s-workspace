@@ -1,3 +1,11 @@
-input("What is your age?")
-age: int
-print((age) + str("this year"))
+def a(b: int, c: str) -> float:
+    b = b + 23
+    c = c + str(b)
+    abc:  float = float(c)
+    return abc
+
+
+b: str = "1"
+c: int = 0
+
+print(a(c, b))

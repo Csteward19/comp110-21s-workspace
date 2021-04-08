@@ -28,7 +28,7 @@ def column_values(data_rows: list[dict[str, str]], column_name: str) -> list[str
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     """Transform from row based to column based data."""
     transform_data: dict[str, list[str]] = {}
-    names: list[str] = row_table[0]
+    names: dict[str, str] = row_table[0]
     for column in names:
         transform_data[column] = column_values(row_table, column) 
     return transform_data
@@ -65,3 +65,25 @@ def count(frequency: list[str]) -> dict[str, int]:
         else:
             val_list[item] = 1
     return val_list
+
+
+def masks(lets_see: list[str], factor: str) -> list[bool]:
+    result: list[bool] = []
+    for entry in lets_see:
+        if entry == factor:
+            result.append(True)
+        else:
+            result.append(False)
+    return result
+
+def compare(masked: list[bool], new_factor: list[str], threshold: int) -> int:
+    compared_answer: int = 0
+    i: int = 0
+    while i < len(masked):
+        if masked[i]:
+            if int(new_factor[i]) >= threshold:
+                compared_answer += 1
+        i += 1
+    return compared_answer
+
+
