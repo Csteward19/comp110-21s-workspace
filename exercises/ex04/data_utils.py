@@ -28,7 +28,7 @@ def column_values(data_rows: list[dict[str, str]], column_name: str) -> list[str
 def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     """Transform from row based to column based data."""
     transform_data: dict[str, list[str]] = {}
-    names: list[str] = row_table[0]
+    names: dict[str, str] = row_table[0]
     for column in names:
         transform_data[column] = column_values(row_table, column) 
     return transform_data
