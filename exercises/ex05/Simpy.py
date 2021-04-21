@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Union
 
-__author__ = "YOUR PID HERE"
+__author__ = "730404260"
 
 
 class Simpy:
@@ -81,5 +81,52 @@ class Simpy:
                 answer.values.append(rhs.values[i] % self.values[i])
                 i += 1
         return answer
-
     
+    def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Produces a mask that compares values to a specific value."""
+        mask1: list[bool] = []
+        if isinstance(rhs, float):
+            for val in self.values:
+                if val == rhs:
+                    mask1.append(True)
+                else:
+                    mask1.append(False)
+        else:
+            assert len(self.values) == len(rhs.values)
+            for val in range(len(self.values)):
+                if self.values[val] == rhs.values[val]:
+                    mask1.append(True)
+                else:
+                    mask1.append(False)
+        return mask1
+    
+    def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Sees if a value is larger than a float and produces a mask."""
+        mask1: list[bool] = []
+        if isinstance(rhs, float):
+            for val in self.values:
+                if val > rhs:
+                    mask1.append(True)
+                else:
+                    mask1.append(False)
+        else:
+             assert len(self.values) == len(rhs.values)
+             for i in range(len(self.values)):
+                if self.values[i] == rhs.values[i]:
+                        mask1.append(True)
+                else:
+                    mask1.append(False)
+        return mask1
+
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
+        """This does subscription notation on values."""
+        if isinstance(rhs, int):
+            for val in range(len(self.values)):
+                if val == rhs:
+                    return self.values[val]
+        else:
+            empty_list: list[float] = []
+            for sub in range(len(self.values)):
+                if rhs[sub] is True:
+                    empty_list.append(self.values[sub])
+        return Simpy(empty_list)
