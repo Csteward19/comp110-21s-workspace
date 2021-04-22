@@ -8,16 +8,20 @@ __author__ = "730404260"
 
 
 class Simpy:
+    """Class for this whole exercise."""
     values: list[float]
 
     # TODO: Your constructor and methods will go here.
     def __init__(self, values: list[float]):
+        """Constructor uses self."""
         self.values = values
     
     def __repr__(self):
+        """Constructor that prints str."""
         return f"{self.values}"
     
     def fill(self, fill_values: float, numb_times: int) -> None:
+        """Method that fills values into new."""
         if len(self.values) > 0:
             for val in range(0, len(self.values)):
                 self.values.pop()
@@ -28,6 +32,7 @@ class Simpy:
             i += 1
 
     def arange(self, start: float, stop: float, step: float = 1.0) -> None:
+        """Method that makes custom range step."""
         assert step != 0.0
         if len(self.values) > 0:
             for val in range(0, len(self.values)):
@@ -38,12 +43,14 @@ class Simpy:
             i += 1
 
     def sum(self) -> float:
+        """Adds all values."""
         answer: float = 0.0
         for val in self.values:
             answer += val
         return answer
 
     def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Adds simpy to simpy or float to float."""
         answer = Simpy([])
         if isinstance(rhs, float):
             for i in self.values:
@@ -57,6 +64,7 @@ class Simpy:
         return answer
 
     def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Takes a value to the exponent."""
         answer = Simpy([])
         if isinstance(rhs, float):
             for i in self.values:
@@ -70,6 +78,7 @@ class Simpy:
         return answer
 
     def __mod__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Does remainder division for values."""
         answer = Simpy([])
         if isinstance(rhs, float):
             for i in self.values:
@@ -78,7 +87,7 @@ class Simpy:
             assert len(rhs.values) == len(self.values)
             i = 0
             while i < len(self.values):
-                answer.values.append(rhs.values[i] % self.values[i])
+                answer.values.append(self.values[i] % rhs.values[i])
                 i += 1
         return answer
     
@@ -110,10 +119,10 @@ class Simpy:
                 else:
                     mask1.append(False)
         else:
-             assert len(self.values) == len(rhs.values)
-             for i in range(len(self.values)):
-                if self.values[i] == rhs.values[i]:
-                        mask1.append(True)
+            assert len(self.values) == len(rhs.values)
+            for i in range(len(self.values)):
+                if self.values[i] > rhs.values[i]:
+                    mask1.append(True)
                 else:
                     mask1.append(False)
         return mask1
